@@ -24,8 +24,8 @@ install:
   - sudo wget -qO- ${OC_BINARY_URL} | sudo tar -xvz -C /bin
 
 before_script:
-  # Configure Ansible Directory
-  - sudo mkdir ~/.ansible && chmod 777 ~/.ansible
+  # Ansible Configuration
+  - sed -i '/\[defaults\]/a remote_tmp = /tmp' ansible.cfg
   #- rm -f molecule/default/destroy.yml
   # Configure Docker
   - sudo service docker stop
