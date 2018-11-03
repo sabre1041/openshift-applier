@@ -50,4 +50,4 @@ before_script:
     echo "OpenShift Cluster Running"
 
 script:
-  - molecule test
+  - molecule --debug test
