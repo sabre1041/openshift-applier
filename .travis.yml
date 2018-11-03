@@ -25,7 +25,7 @@ install:
 
 before_script:
   # Configure Ansible Directory
-  - sudo mkdir /home/travis/.ansible && chmod -R 777 /home/travis/.ansible
+  - sudo mkdir ~/.ansible && chmod ~/.ansible
   #- rm -f molecule/default/destroy.yml
   # Configure Docker
   - sudo service docker stop
