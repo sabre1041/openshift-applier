@@ -24,7 +24,8 @@ install:
   - sudo wget -qO- ${OC_BINARY_URL} | sudo tar -xvz -C /bin
 
 before_script:
-  # Remove Destroy File as Cleanup Not Yet Needed
+  # Configure Ansible Directory
+  - sudo mkdir /home/travis/.ansible ** chmod -R 777 /home/travis/.ansible
   #- rm -f molecule/default/destroy.yml
   # Configure Docker
   - sudo service docker stop
