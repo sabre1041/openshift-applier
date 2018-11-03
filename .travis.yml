@@ -19,15 +19,11 @@ before_install:
 
 install:
   - pip install -U pip
-  - pip install ansible==2.6 ansible-lint==3.4.23 yamllint flake8 molecule docker
+  - pip install ansible==2.6 ansible-lint==3.4.23 yamllint flake8 molecule==2.17.0 docker
   # Configure OpenShift Binary
   - sudo wget -qO- ${OC_BINARY_URL} | sudo tar -xvz -C /bin
 
 before_script:
-  # Ansible Configuration
-  - sed -i '/\[defaults\]/a remote_tmp = /tmp' ansible.cfg
-  - cat ansible.cfg
-  #- rm -f molecule/default/destroy.yml
   # Configure Docker
   - sudo service docker stop
   - sudo sed -i -e 's/sock/sock --insecure-registry 172.30.0.0\/16/' /etc/default/docker
@@ -50,4 +46,4 @@ before_script:
     echo "OpenShift Cluster Running"
 
 script:
-  - molecule --debug test
+  - molecule test
