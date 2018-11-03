@@ -26,6 +26,7 @@ install:
 before_script:
   # Ansible Configuration
   - sed -i '/\[defaults\]/a remote_tmp = /tmp' ansible.cfg
+  - cat ansible.cfg
   #- rm -f molecule/default/destroy.yml
   # Configure Docker
   - sudo service docker stop
