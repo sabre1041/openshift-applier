@@ -25,7 +25,7 @@ install:
 
 before_script:
   # Remove Destroy File as Cleanup Not Yet Needed
-  - rm -f molecule/default/destroy.yml
+  #- rm -f molecule/default/destroy.yml
   # Configure Docker
   - sudo service docker stop
   - sudo sed -i -e 's/sock/sock --insecure-registry 172.30.0.0\/16/' /etc/default/docker
